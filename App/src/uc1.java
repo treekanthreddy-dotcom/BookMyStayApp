@@ -1,22 +1,25 @@
-public class uc1 {
+public class uc1{
 
-    // Room class inside same file
-    static class Room {
-        int roomId;
-        String roomType;
+    // Version 3.0 class
+    static class Item {
+        int itemId;
+        String itemName;
+        int quantity;
         double price;
 
         // Constructor
-        Room(int roomId, String roomType, double price) {
-            this.roomId = roomId;
-            this.roomType = roomType;
+        Item(int itemId, String itemName, int quantity, double price) {
+            this.itemId = itemId;
+            this.itemName = itemName;
+            this.quantity = quantity;
             this.price = price;
         }
 
-        // Display method
-        void displayRoomDetails() {
-            System.out.println("Room ID: " + roomId);
-            System.out.println("Room Type: " + roomType);
+        // Method to display item details
+        void displayItem() {
+            System.out.println("Item ID: " + itemId);
+            System.out.println("Item Name: " + itemName);
+            System.out.println("Quantity: " + quantity);
             System.out.println("Price: ₹" + price);
             System.out.println("----------------------");
         }
@@ -24,16 +27,16 @@ public class uc1 {
 
     public static void main(String[] args) {
 
-        System.out.println("=== Room Initialization ===");
+        System.out.println("=== Inventory Setup ===");
 
         // Creating objects
-        Room r1 = new Room(101, "Single", 1000);
-        Room r2 = new Room(102, "Double", 2000);
-        Room r3 = new Room(103, "Deluxe", 3000);
+        Item i1 = new Item(1, "Bedsheet", 10, 500);
+        Item i2 = new Item(2, "Pillow", 20, 200);
+        Item i3 = new Item(3, "Towel", 15, 150);
 
-        // Display
-        r1.displayRoomDetails();
-        r2.displayRoomDetails();
-        r3.displayRoomDetails();
+        // Display inventory
+        i1.displayItem();
+        i2.displayItem();
+        i3.displayItem();
     }
 }
