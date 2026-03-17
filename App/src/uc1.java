@@ -1,44 +1,39 @@
-import java.util.Scanner;
+public class uc1 {
 
-public class uc1{
+    // Room class inside same file
+    static class Room {
+        int roomId;
+        String roomType;
+        double price;
+
+        // Constructor
+        Room(int roomId, String roomType, double price) {
+            this.roomId = roomId;
+            this.roomType = roomType;
+            this.price = price;
+        }
+
+        // Display method
+        void displayRoomDetails() {
+            System.out.println("Room ID: " + roomId);
+            System.out.println("Room Type: " + roomType);
+            System.out.println("Price: ₹" + price);
+            System.out.println("----------------------");
+        }
+    }
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        System.out.println("=== Room Initialization ===");
 
-        System.out.println("=== Hotel Booking App ===");
+        // Creating objects
+        Room r1 = new Room(101, "Single", 1000);
+        Room r2 = new Room(102, "Double", 2000);
+        Room r3 = new Room(103, "Deluxe", 3000);
 
-        // Input details
-        System.out.print("Enter Customer Name: ");
-        String name = sc.nextLine();
-
-        System.out.print("Enter Room Type (Single/Double): ");
-        String roomType = sc.nextLine();
-
-        System.out.print("Enter Number of Days: ");
-        int days = sc.nextInt();
-
-        // Simple price logic
-        int rate = 0;
-
-        if (roomType.equalsIgnoreCase("Single")) {
-            rate = 1000;
-        } else if (roomType.equalsIgnoreCase("Double")) {
-            rate = 2000;
-        } else {
-            System.out.println("Invalid Room Type!");
-            return;
-        }
-
-        int total = rate * days;
-
-        // Output booking details
-        System.out.println("\n--- Booking Details ---");
-        System.out.println("Customer Name: " + name);
-        System.out.println("Room Type: " + roomType);
-        System.out.println("Days: " + days);
-        System.out.println("Total Amount: ₹" + total);
-
-        sc.close();
+        // Display
+        r1.displayRoomDetails();
+        r2.displayRoomDetails();
+        r3.displayRoomDetails();
     }
 }
