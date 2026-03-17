@@ -1,25 +1,22 @@
-public class uc1{
+import java.util.Scanner;
 
-    // Version 3.0 class
-    static class Item {
-        int itemId;
-        String itemName;
-        int quantity;
+public class uc1 {
+
+    // Room class
+    static class Room {
+        int roomId;
+        String roomType;
         double price;
 
-        // Constructor
-        Item(int itemId, String itemName, int quantity, double price) {
-            this.itemId = itemId;
-            this.itemName = itemName;
-            this.quantity = quantity;
+        Room(int roomId, String roomType, double price) {
+            this.roomId = roomId;
+            this.roomType = roomType;
             this.price = price;
         }
 
-        // Method to display item details
-        void displayItem() {
-            System.out.println("Item ID: " + itemId);
-            System.out.println("Item Name: " + itemName);
-            System.out.println("Quantity: " + quantity);
+        void displayRoom() {
+            System.out.println("Room ID: " + roomId);
+            System.out.println("Room Type: " + roomType);
             System.out.println("Price: ₹" + price);
             System.out.println("----------------------");
         }
@@ -27,16 +24,35 @@ public class uc1{
 
     public static void main(String[] args) {
 
-        System.out.println("=== Inventory Setup ===");
+        Scanner sc = new Scanner(System.in);
 
-        // Creating objects
-        Item i1 = new Item(1, "Bedsheet", 10, 500);
-        Item i2 = new Item(2, "Pillow", 20, 200);
-        Item i3 = new Item(3, "Towel", 15, 150);
+        // Predefined rooms
+        Room[] rooms = {
+                new Room(101, "Single", 1000),
+                new Room(102, "Double", 2000),
+                new Room(103, "Deluxe", 3000),
+                new Room(104, "Single", 1200)
+        };
 
-        // Display inventory
-        i1.displayItem();
-        i2.displayItem();
-        i3.displayItem();
+        System.out.print("Enter room type to search: ");
+        String searchType = sc.nextLine();
+
+        boolean found = false;
+
+        System.out.println("\n--- Search Results ---");
+
+        // Search logic
+        for (Room r : rooms) {
+            if (r.roomType.equalsIgnoreCase(searchType)) {
+                r.displayRoom();
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("No rooms found for given type.");
+        }
+
+        sc.close();
     }
 }
