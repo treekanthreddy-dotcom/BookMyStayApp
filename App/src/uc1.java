@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class UseCase1HotelBookingApp {
+public class uc1{
 
     public static void main(String[] args) {
 
